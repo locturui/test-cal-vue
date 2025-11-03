@@ -81,8 +81,9 @@ const getMonthWithOverflow = (year: number, month: number) => {
   const firstDay = new Date(year, month, 1)
   const days: Date[] = []
   const dayCount = daysInMonth(month + 1, year)
+  const day = firstDay.getDay()
+  const startDay = day === 0 ? 6 : day - 1
 
-  const startDay = firstDay.getDay()
   for (let i = 0; i < startDay; i++) {
     days.push(goBackDays(firstDay, startDay - i))
   }
